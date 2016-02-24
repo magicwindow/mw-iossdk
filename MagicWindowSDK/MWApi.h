@@ -45,14 +45,24 @@ typedef void(^ _Nullable CallBackMLink)(NSURL * __nonnull url ,NSDictionary * __
  *  注册app
  *  需要在 application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions 中调用
  *  @param appKey 魔窗后台注册的appkey
+ *  @return void
  */
 + (void)registerApp:(nonnull NSString *)appKey;
 
 /**
  *  设置用户基本信息
+ *  @param userPhone 用户手机号
+ *  @return void
  */
 + (void)setUserPhone:(nonnull NSString *)userPhone;
+
+/**
+ *  设置用户基本信息
+ *  @param user MWUserProfile对象
+ *  @return void
+ */
 + (void)setUserProfile:(nonnull MWUserProfile *)user;
+
 /**
  * 退出登录的时候，取消当前的用户基本信息
  */
@@ -67,16 +77,22 @@ typedef void(^ _Nullable CallBackMLink)(NSURL * __nonnull url ,NSDictionary * __
 
 /** 
  *  设置是否打印sdk的log信息,默认不开启,在release情况下，不要忘记设为NO.
+ *  @param enable YES:打开,NO:关闭
+ *  @return void
  */
 + (void)setLogEnable:(BOOL)enable;
 
 /**
  *  设置是否抓取crash信息,默认开启.
+ *  @param enable YES:打开,NO:关闭
+ *  @return void
  */
 + (void)setCaughtCrashesEnable:(BOOL)enable;
 
 /**
  *  设置是否使用mlink，默认开启
+ *  @param enable YES:打开,NO:关闭
+ *  @return void
  **/
 + (void)setMlinkEnable:(BOOL)enable;
 
@@ -91,9 +107,9 @@ typedef void(^ _Nullable CallBackMLink)(NSURL * __nonnull url ,NSDictionary * __
  *  获取活动相关配置信息
  *  适用于pushViewController
  *  @param key 魔窗位key
- *  @param targetView 展示活动简介的view
- *  @param callback success 当成功获取到该魔窗位上活动的时候会调用这个回调  
- *  @param callback failure 当获取到该魔窗位上活动失败的时候会调用这个回调
+ *  @param view 展示活动简介的view
+ *  @param success callback 当成功获取到该魔窗位上活动的时候会调用这个回调
+ *  @param failure callback 当获取到该魔窗位上活动失败的时候会调用这个回调
  *  @return void
  */
 + (void)configAdViewWithKey:(nonnull NSString *)key withTarget:(nonnull UIView *)view
@@ -104,9 +120,10 @@ typedef void(^ _Nullable CallBackMLink)(NSURL * __nonnull url ,NSDictionary * __
  *  获取活动相关配置信息
  *  适用于presentViewController
  *  @param key 魔窗位key
- *  @param targetView 展示活动简介的view
- *  @param callback success 当成功获取到该魔窗位上活动的时候会调用这个回调
- *  @param callback failure 当获取到该魔窗位上活动失败的时候会调用这个回调
+ *  @param view 展示活动简介的view
+ *  @param controller 展示活动简介的UIViewController
+ *  @param success callback 当成功获取到该魔窗位上活动的时候会调用这个回调
+ *  @param failure callback 当获取到该魔窗位上活动失败的时候会调用这个回调
  *  @return void
  */
 + (void)configAdViewWithKey:(nonnull NSString *)key withTargetView:(nonnull UIView *)view withTargetViewController:(nonnull UIViewController *)controller
@@ -117,11 +134,12 @@ typedef void(^ _Nullable CallBackMLink)(NSURL * __nonnull url ,NSDictionary * __
  *  获取活动相关配置信息
  *  适用于所有的UIViewController
  *  @param key 魔窗位key
- *  @param target 展示活动简介的view
- *  @param callback success 当成功获取到该魔窗位上活动的时候会调用这个回调
- *  @param callback failure 当获取到该魔窗位上活动失败的时候会调用这个回调
- *  @param callback tap 当点击该魔窗位上活动的时候会调用这个回调，return YES 允许跳转，NO 不允许跳转
- *  @param callback mLinkHandler 当活动类型为mlink的时候，点击的该活动的时候，会调用这个回调，return mlink需要的相关参数
+ *  @param view 展示活动简介的view
+ *  @param controller 展示活动简介的UIViewController
+ *  @param success callback 当成功获取到该魔窗位上活动的时候会调用这个回调
+ *  @param failure callback 当获取到该魔窗位上活动失败的时候会调用这个回调
+ *  @param tap callback 当点击该魔窗位上活动的时候会调用这个回调，return YES 允许跳转，NO 不允许跳转
+ *  @param mLinkHandler callback 当活动类型为mlink的时候，点击的该活动的时候，会调用这个回调，return mlink需要的相关参数
  *  @return void
  */
 + (void)configAdViewWithKey:(nonnull NSString *)key withTargetView:(nonnull UIView *)view withTargetViewController:(nullable UIViewController *)controller
@@ -140,7 +158,7 @@ typedef void(^ _Nullable CallBackMLink)(NSURL * __nonnull url ,NSDictionary * __
 /**
  *  批量判断魔窗位上是否有活动
  *  @param mwKeys 魔窗位数组
- *  @return 有活动的魔窗位数组
+ *  @return NSArray 有活动的魔窗位数组
  */
 +(nullable NSArray *)mwkeysWithActiveCampign:(nonnull NSArray *)mwKeys;
 
@@ -148,6 +166,7 @@ typedef void(^ _Nullable CallBackMLink)(NSURL * __nonnull url ,NSDictionary * __
  *  自动打开webView,显示活动
  *  只有在成功获取到活动信息的时候，该方法才有效
  *  @param key 魔窗位key
+ *  @param view 展示活动简介的view
  *  @return void
  */
 + (void)autoOpenWebViewWithKey:(nonnull NSString *)key withTargetView:(nonnull UIView *)view;
@@ -178,16 +197,23 @@ typedef void(^ _Nullable CallBackMLink)(NSURL * __nonnull url ,NSDictionary * __
 + (void)pageviewStartWithName:(nonnull NSString *)name;
 /**
  *  标识某个页面访问的结束，与pageviewStartWithName配对使用，请参见Example程序，在合适的位置调用，name不能为空。
+ *  @param name 页面的唯一标示，不能为空
+ *  @return void
  */
 + (void)pageviewEndWithName:(nonnull NSString *)name;
 
 /**
  * 自定义事件
+ *  @param eventId 自定义事件的唯一标示，不能为空
+ *  @return void
  */
 + (void)setCustomEvent:(nonnull NSString *)eventId;
 
 /**
  * 自定义事件
+ *  @param eventId 自定义事件的唯一标示，不能为空
+ *  @param attributes 动态参数，最多可包含9个
+ *  @return void
  */
 + (void)setCustomEvent:(nonnull NSString *)eventId attributes:(nullable NSDictionary *)attributes;
 
@@ -220,10 +246,9 @@ typedef void(^ _Nullable CallBackMLink)(NSURL * __nonnull url ,NSDictionary * __
 
 /**
  *  处理第三方app通过URL启动App时传递的数据
- *
  *  需要在 application:handleOpenURL中调用。
  *  @param url 启动App的URL
- *  @param delegate对象，用来接收第三方app触发的消息。
+ *  @param delegate 用来接收第三方app触发的消息。
  *  @return 成功返回YES，失败返回NO。
  */
 + (BOOL)handleOpenURL:(nonnull NSURL *)url delegate:(nullable id)delegate;
@@ -240,6 +265,7 @@ typedef void(^ _Nullable CallBackMLink)(NSURL * __nonnull url ,NSDictionary * __
  * 需要在 application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions 中调用
  * @param key 后台注册mlink时生成的mlink key
  * @param handler mlink的回调
+ *  @return void
  */
 + (void)registerMLinkHandlerWithKey:(nonnull NSString *)key handler:(CallBackMLink)handler;
 
@@ -247,6 +273,7 @@ typedef void(^ _Nullable CallBackMLink)(NSURL * __nonnull url ,NSDictionary * __
  * 注册一个默认的mlink handler
  * 需要在 application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions 中调用
  * @param handler mlink的回调
+ *  @return void
  */
 + (void)registerMLinkDefaultHandler:(CallBackMLink)handler;
 
@@ -254,6 +281,7 @@ typedef void(^ _Nullable CallBackMLink)(NSURL * __nonnull url ,NSDictionary * __
  * 根据不同的URL路由到不同的app展示页
  * 需要在 application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation 中调用
  * @param url 传入上面方法中的openUrl
+ *  @return void
  */
 + (void)routeMLink:(nonnull NSURL *)url;
 
@@ -261,6 +289,7 @@ typedef void(^ _Nullable CallBackMLink)(NSURL * __nonnull url ,NSDictionary * __
  *  根据universal link路由到不同的app展示页
  *  需要在 application:(UIApplication *)application continueUserActivity:(NSUserActivity *)userActivity restorationHandler:(void(^)(NSArray * __nullable restorableObjects))restorationHandler 中调用
  *  @param userActivity 传入上面方法中的userActivity
+ *  @return BOOL
  */
 + (BOOL)continueUserActivity:(nonnull NSUserActivity *)userActivity;
 

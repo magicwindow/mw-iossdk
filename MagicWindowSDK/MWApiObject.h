@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
+//用户信息
 @interface MWUserProfile : NSObject
 
 @property (nonatomic, strong) NSString *mwUserId;       //用户唯一标识
