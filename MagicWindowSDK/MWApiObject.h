@@ -9,6 +9,14 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
+
+typedef enum
+{
+    MWUnknow = 0,           //未知
+    MWMale= 1,              //男
+    MWFemale = 2            //女
+}MWGenderType;
+
 //用户信息
 @interface MWUserProfile : NSObject
 
@@ -16,11 +24,12 @@
 @property (nonatomic, strong) NSString *mwPhone;        //手机号
 @property (nonatomic, strong) NSString *mwEmail;        //邮箱
 @property (nonatomic, strong) NSString *mwUserName;     //用户名
-@property (nonatomic, strong) NSString *mwGender;       //性别
+@property (nonatomic, assign) MWGenderType mwGender;    //性别
 @property (nonatomic, strong) NSString *mwBirthday;     //生日
 @property (nonatomic, strong) NSString *mwCountry;      //国家
 @property (nonatomic, strong) NSString *mwProvince;     //省份
 @property (nonatomic, strong) NSString *mwCity;         //城市
+@property (nonatomic, retain) NSString *mwUserRank;     //用户等级
 @property (nonatomic, strong) NSString *mwRemark;       //备注
 
 @end
@@ -62,3 +71,13 @@
 
 
 @end
+
+//webview导航条自定义标题样式
+@interface MWBarTitle : UILabel
+
+@property (nonatomic, strong) UIColor *mwTitleColor UI_APPEARANCE_SELECTOR;           //set title color
+@property (nonatomic, strong) UIFont *mwTitleFont UI_APPEARANCE_SELECTOR;             //set title font
+
+@end
+
+

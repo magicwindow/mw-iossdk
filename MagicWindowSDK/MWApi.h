@@ -35,9 +35,10 @@
 
 typedef  void (^ _Nullable CallbackWithCampaignSuccess) (NSString *__nonnull key, UIView *__nonnull view, MWCampaignConfig *__nonnull campaignConfig);
 typedef void (^ _Nullable CallbackWithCampaignFailure) (NSString *__nonnull key, UIView *__nonnull view, NSString *__nullable errorMessage);
-typedef  NSDictionary * _Nullable (^ CallbackWithMLinkCampaign) (NSString *__nonnull key, UIView *__nonnull view);
 typedef  BOOL (^ CallbackWithTapCampaign) (NSString *__nonnull key, UIView *__nonnull view);
 typedef void(^ _Nullable CallBackMLink)(NSURL * __nonnull url ,NSDictionary * __nullable params);
+typedef  NSDictionary * _Nullable (^ CallbackWithMLinkCampaign) (NSString *__nonnull key, UIView *__nonnull view);
+typedef  NSDictionary * _Nullable (^ CallbackWithMLinkLandingPage) (NSString *__nonnull key, UIView *__nonnull view);
 
 @interface MWApi : NSObject
 
@@ -139,6 +140,22 @@ typedef void(^ _Nullable CallBackMLink)(NSURL * __nonnull url ,NSDictionary * __
  *  @param success callback 当成功获取到该魔窗位上活动的时候会调用这个回调
  *  @param failure callback 当获取到该魔窗位上活动失败的时候会调用这个回调
  *  @param tap callback 当点击该魔窗位上活动的时候会调用这个回调，return YES 允许跳转，NO 不允许跳转
+ *  @return void
+ */
++ (void)configAdViewWithKey:(nonnull NSString *)key withTargetView:(nonnull UIView *)view withTargetViewController:(nullable UIViewController *)controller
+                    success:(CallbackWithCampaignSuccess)success
+                    failure:(CallbackWithCampaignFailure)failure
+                        tap:(nullable CallbackWithTapCampaign)tap;
+
+/**
+ *  获取活动相关配置信息
+ *  适用于所有的UIViewController
+ *  @param key 魔窗位key
+ *  @param view 展示活动简介的view
+ *  @param controller 展示活动简介的UIViewController
+ *  @param success callback 当成功获取到该魔窗位上活动的时候会调用这个回调
+ *  @param failure callback 当获取到该魔窗位上活动失败的时候会调用这个回调
+ *  @param tap callback 当点击该魔窗位上活动的时候会调用这个回调，return YES 允许跳转，NO 不允许跳转
  *  @param mLinkHandler callback 当活动类型为mlink的时候，点击的该活动的时候，会调用这个回调，return mlink需要的相关参数
  *  @return void
  */
@@ -146,7 +163,26 @@ typedef void(^ _Nullable CallBackMLink)(NSURL * __nonnull url ,NSDictionary * __
                     success:(CallbackWithCampaignSuccess)success
                     failure:(CallbackWithCampaignFailure)failure
                         tap:(nullable CallbackWithTapCampaign)tap
-                      mLinkHandler:(nullable CallbackWithMLinkCampaign)mLinkHandler;
+               mLinkHandler:(nullable CallbackWithMLinkCampaign)mLinkHandler;
+
+/**
+ *  获取活动相关配置信息
+ *  适用于所有的UIViewController
+ *  @param key 魔窗位key
+ *  @param view 展示活动简介的view
+ *  @param controller 展示活动简介的UIViewController
+ *  @param success callback 当成功获取到该魔窗位上活动的时候会调用这个回调
+ *  @param failure callback 当获取到该魔窗位上活动失败的时候会调用这个回调
+ *  @param tap callback 当点击该魔窗位上活动的时候会调用这个回调，return YES 允许跳转，NO 不允许跳转
+ *  @param mLinkHandler callback 当活动类型为mlink的时候，点击的该活动的时候，会调用这个回调，return mlink需要的相关参数
+ *  @return void
+ */
++ (void)configAdViewWithKey:(nonnull NSString *)key withTargetView:(nonnull UIView *)view withTargetViewController:(nullable UIViewController *)controller
+                    success:(CallbackWithCampaignSuccess)success
+                    failure:(CallbackWithCampaignFailure)failure
+                        tap:(nullable CallbackWithTapCampaign)tap
+               mLinkHandler:(nullable CallbackWithMLinkCampaign)mLinkHandler
+    mLinkLandingPageHandler:(nullable CallbackWithMLinkLandingPage)landingPageHandler;
 
 /**
  *  判断单个魔窗位上是否有活动
