@@ -175,6 +175,7 @@ typedef  NSDictionary * _Nullable (^ CallbackWithMLinkLandingPage) (NSString *__
  *  @param failure callback 当获取到该魔窗位上活动失败的时候会调用这个回调
  *  @param tap callback 当点击该魔窗位上活动的时候会调用这个回调，return YES 允许跳转，NO 不允许跳转
  *  @param mLinkHandler callback 当活动类型为mlink的时候，点击的该活动的时候，会调用这个回调，return mlink需要的相关参数
+ *  @param mLinkLandingPageHandler callback 当活动类型为mlink landing page的时候，点击的该活动的时候，会调用这个回调，return mlink landing page需要的相关参数
  *  @return void
  */
 + (void)configAdViewWithKey:(nonnull NSString *)key withTargetView:(nonnull UIView *)view withTargetViewController:(nullable UIViewController *)controller

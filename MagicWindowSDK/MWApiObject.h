@@ -77,6 +77,7 @@ typedef enum
 
 @property (nonatomic, strong) UIColor *mwTitleColor UI_APPEARANCE_SELECTOR;           //set title color
 @property (nonatomic, strong) UIFont *mwTitleFont UI_APPEARANCE_SELECTOR;             //set title font
+@property (nonatomic, assign) NSTextAlignment mwTextAlignment UI_APPEARANCE_SELECTOR;//set title alignment
 
 @end
 
