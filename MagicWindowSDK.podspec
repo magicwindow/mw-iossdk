@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "MagicWindowSDK"
-  s.version      = "3.70.160506"
+  s.version      = "3.70.160527"
   s.summary      = "MagicWindowSDK for Cocoapods convenience."
   s.homepage     = "http://magicwindow.cn/"
   s.license      = "MIT"
@@ -20,6 +20,5 @@ Pod::Spec.new do |s|
   }
   s.frameworks = "AdSupport","CoreTelephony","CoreGraphics","CoreFoundation","SystemConfiguration","CoreLocation","SafariServices"
   s.libraries = "z","sqlite3.0"
-  s.dependency "libWeChatSDK"
 
 end
