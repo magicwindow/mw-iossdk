@@ -21,4 +21,12 @@ Pod::Spec.new do |s|
   s.frameworks = "AdSupport","CoreTelephony","CoreGraphics","CoreFoundation","SystemConfiguration","CoreLocation","SafariServices"
   s.libraries = "z","sqlite3.0"
 
+  # WeChat
+  s.subspec 'WeChat' do |sp|
+  sp.vendored_libraries = "MagicWindowSDK/WeChat/*.a"
+  sp.source_files = "MagicWindowSDK/WeChat/*.{h,m}"
+  sp.public_header_files = "MagicWindowSDK/WeChat/*.h"
+  sp.libraries = 'sqlite3'
+  end
+
 end
