@@ -194,8 +194,8 @@ typedef  NSDictionary * _Nullable (^ CallbackWithMLinkLandingPage) (NSString *__
 
 /**
  *  批量判断魔窗位上是否有活动
- *  @param mwKeys 魔窗位数组
- *  @return NSArray 有活动的魔窗位数组
+ *  @param mwKeys 魔窗位keys
+ *  @return NSArray 有活动的魔窗位keys
  */
 +(nullable NSArray *)mwkeysWithActiveCampign:(nonnull NSArray *)mwKeys;
 

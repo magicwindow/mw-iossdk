@@ -18,6 +18,8 @@
 
 @property (strong, nonatomic) NSString *imageUrl;       //活动图片
 
+@property (strong, nonatomic) NSString *imageWebpUrl;   //活动图片 webp格式
+
 @property (strong, nonatomic) NSString *thumbImageUrl;  //缩略图
 
 @property (strong, nonatomic) NSString *campaignKey;    //活动key
