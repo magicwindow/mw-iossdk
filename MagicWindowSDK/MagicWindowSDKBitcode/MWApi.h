@@ -298,6 +298,12 @@ typedef  NSDictionary * _Nullable (^ CallbackWithMLinkLandingPage) (NSString *__
 
 #pragma mark mLink
 /**
+ * 获得最近一次的mLink短链接的渠道来源
+ * @return stirng
+ */
++ (nullable NSString *)getLastChannelForMLink;
+
+/**
  * 注册一个mLink handler，当接收到URL的时候，会根据mLink key进行匹配，当匹配成功会调用相应的handler
  * 需要在 AppDelegate 的 didFinishLaunchingWithOptions 中调用
  * @param key 后台注册mlink时生成的mlink key
