@@ -39,6 +39,7 @@ typedef  BOOL (^ CallbackWithTapCampaign) (NSString *__nonnull key, UIView *__no
 typedef void(^ _Nullable CallBackMLink)(NSURL * __nonnull url ,NSDictionary * __nullable params);
 typedef  NSDictionary * _Nullable (^ CallbackWithMLinkCampaign) (NSString *__nonnull key, UIView *__nonnull view);
 typedef  NSDictionary * _Nullable (^ CallbackWithMLinkLandingPage) (NSString *__nonnull key, UIView *__nonnull view);
+typedef  NSDictionary * _Nullable (^ CallbackWithReturnMLink) (NSString *__nonnull key, UIView *__nonnull view);
 
 @interface MWApi : NSObject
 
@@ -184,6 +185,29 @@ typedef  NSDictionary * _Nullable (^ CallbackWithMLinkLandingPage) (NSString *__
                         tap:(nullable CallbackWithTapCampaign)tap
                mLinkHandler:(nullable CallbackWithMLinkCampaign)mLinkHandler
     mLinkLandingPageHandler:(nullable CallbackWithMLinkLandingPage)landingPageHandler;
+
+/**
+ *  获取活动相关配置信息，支持A跳到B，B返回A，魔窗位即代表A
+ *  适用于所有的UIViewController
+ *  @param key 魔窗位key
+ *  @param view 展示活动简介的view
+ *  @param controller 展示活动简介的UIViewController
+ *  @param callBackMLinkKey : mLink key ,当从B返回回来的时候，会根据mLink key来跳转到相应的页面
+ *  @param success callback 当成功获取到该魔窗位上活动的时候会调用这个回调
+ *  @param failure callback 当获取到该魔窗位上活动失败的时候会调用这个回调
+ *  @param tap callback 当点击该魔窗位上活动的时候会调用这个回调，return YES 允许跳转，NO 不允许跳转
+ *  @param mLinkHandler callback 当活动类型为mlink的时候，点击的该活动的时候，会调用这个回调，return mlink需要的相关参数
+ *  @param mLinkLandingPageHandler callback 当活动类型为mlink landing page的时候，点击的该活动的时候，会调用这个回调，return mlink landing page需要的相关参数
+ *  @param MLinkCallBackParamas :callback 当从B返回过来的时候，需要的相关参数
+ *  @return void
+ */
++ (void)configAdViewWithKey:(nonnull NSString *)key withTargetView:(nonnull UIView *)view withTargetViewController:(nullable UIViewController *)controller WithCallBackMLinkKey:(nullable NSString *)callBackMLinkKey
+                    success:(CallbackWithCampaignSuccess)success
+                    failure:(CallbackWithCampaignFailure)failure
+                        tap:(nullable CallbackWithTapCampaign)tap
+                      mLinkHandler:(nullable CallbackWithMLinkCampaign)mLinkHandler
+                mLinkLandingPageHandler:(nullable CallbackWithMLinkLandingPage)landingPageHandler
+       MLinkCallBackParamas:(nullable CallbackWithReturnMLink)mLinkCallBackParamas;
 
 /**
  *  判断单个魔窗位上是否有活动
@@ -336,5 +360,18 @@ typedef  NSDictionary * _Nullable (^ CallbackWithMLinkLandingPage) (NSString *__
  *  @return BOOL
  */
 + (BOOL)continueUserActivity:(nonnull NSUserActivity *)userActivity;
+
+/**
+ *  A跳B，B判断是否需要返回A
+ *  @return BOOL YES：需要返回，NO：不需要返回
+ */
++ (BOOL)callbackEnable;
+
+/**
+ *  A跳B，B返回A的时候，调用此方法
+ *  @param params 返回A时需要传入的参数
+ *  @return BOOL YES：成功返回，NO：失败
+ */
++ (BOOL)returnOriginAppWithParams:(nullable NSDictionary *)params;
 
 @end
