@@ -1,7 +1,5 @@
 //
 //  MWApiObject.h
-//  MagicWindowSampleApp
-//
 //  Created by 刘家飞 on 15/8/27.
 //  Copyright (c) 2015年 MagicWindow. All rights reserved.
 //

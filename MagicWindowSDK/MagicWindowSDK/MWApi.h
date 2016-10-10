@@ -1,7 +1,5 @@
 //
 //  MagicWindowApi.h
-//  MagicWindowSampleApp
-//
 //  Created by 刘家飞 on 14/11/18.
 //  Copyright (c) 2014年 MagicWindow. All rights reserved.
 //
@@ -92,11 +90,10 @@ typedef  NSDictionary * _Nullable (^ CallbackWithReturnMLink) (NSString *__nonnu
 + (void)setCaughtCrashesEnable:(BOOL)enable;
 
 /**
- *  设置是否使用mlink，默认开启
- *  @param enable YES:打开,NO:关闭
- *  @return void
+ *  @deprecated This method is deprecated starting in version 3.9
+ *  @note default true
  **/
-+ (void)setMlinkEnable:(BOOL)enable;
++ (void)setMlinkEnable:(BOOL)enable DEPRECATED(3.9);
 
 /**
  * 用来获得当前sdk的版本号
@@ -256,8 +253,9 @@ typedef  NSDictionary * _Nullable (^ CallbackWithReturnMLink) (NSString *__nonnu
  *  @return void
  */
 + (void)pageviewStartWithName:(nonnull NSString *)name;
+
 /**
- *  标识某个页面访问的结束，与pageviewStartWithName配对使用，请参见Example程序，在合适的位置调用，name不能为空。
+ *  标识某个页面访问的结束，与pageviewStartWithName配对使用，name不能为空。
  *  @param name 页面的唯一标示，不能为空
  *  @return void
  */

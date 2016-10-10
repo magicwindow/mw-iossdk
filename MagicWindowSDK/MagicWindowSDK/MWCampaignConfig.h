@@ -1,7 +1,5 @@
 //
 //  MWAdPictureConfig.h
-//  MagicWindowSampleApp
-//
 //  Created by 刘家飞 on 14/11/18.
 //  Copyright (c) 2014年 MagicWindow. All rights reserved.
 //
