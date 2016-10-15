@@ -9,6 +9,7 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/magicwindow/mw-iossdk.git", :tag => "#{s.version}" }
   s.platform     = :ios, "7.0"
   s.source_files = "MagicWindowSDK/MagicWindowSDKBitcode/*.{h,m}"
+  s.exclude_files ="MagicWindowSDK/MagicWindowSDKBitcode/MWFloatView.m"
   s.public_header_files = "MagicWindowSDK/MagicWindowSDKBitcode/*.h"
   s.resource     = "MagicWindowSDK/MagicWindowSDKBitcode/MagicWindow.bundle"
   s.preserve_paths = "MagicWindowSDK/MagicWindowSDKBitcode/libMagicWindowSDK.a"
