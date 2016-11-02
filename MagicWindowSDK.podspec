@@ -8,22 +8,22 @@ Pod::Spec.new do |s|
   s.author       = { "MagicWindow" => "support@magicwindow.cn" }
   s.source       = { :git => "https://github.com/magicwindow/mw-iossdk.git", :tag => "#{s.version}" }
   s.platform     = :ios, "7.0"
-  s.source_files = "MagicWindowSDK/MagicWindowSDK/*.{h,m}"
-  s.public_header_files = "MagicWindowSDK/MagicWindowSDK/*.h"
-  s.resource     = "MagicWindowSDK/MagicWindowSDK/MagicWindow.bundle"
-  s.preserve_paths = "MagicWindowSDK/MagicWindowSDK/libMagicWindowSDK.a"
-  s.vendored_libraries = "MagicWindowSDK/MagicWindowSDK/libMagicWindowSDK.a"
-  s.requires_arc = true
-  s.xcconfig = {
-    'LIBRARY_SEARCH_PATHS' => '"$(PODS_ROOT)/MagicWindowSDK/MagicWindowSDK"',
-    'HEADER_SEARCH_PATHS' => '"$(PODS_ROOT)/MagicWindowSDK/MagicWindowSDK"'
-  }
-  s.frameworks = "AdSupport","CoreTelephony","CoreGraphics","CoreFoundation","SystemConfiguration","CoreLocation"
-  s.libraries = "z","sqlite3.0"
+ s.requires_arc = true
 
   s.default_subspec = 'MW'
 
   s.subspec 'MW' do |mw|
+    s.source_files = "MagicWindowSDK/MagicWindowSDK/*.{h,m}"
+    s.public_header_files = "MagicWindowSDK/MagicWindowSDK/*.h"
+    s.resource     = "MagicWindowSDK/MagicWindowSDK/MagicWindow.bundle"
+    s.preserve_paths = "MagicWindowSDK/MagicWindowSDK/libMagicWindowSDK.a"
+    s.vendored_libraries = "MagicWindowSDK/MagicWindowSDK/libMagicWindowSDK.a"
+    s.frameworks = "AdSupport","CoreTelephony","CoreGraphics","CoreFoundation","SystemConfiguration","CoreLocation"
+    s.libraries = "z","sqlite3.0"
+    s.xcconfig = {
+        'LIBRARY_SEARCH_PATHS' => '"$(PODS_ROOT)/MagicWindowSDK/MagicWindowSDK"',
+        'HEADER_SEARCH_PATHS' => '"$(PODS_ROOT)/MagicWindowSDK/MagicWindowSDK"'
+    }
   end
 
   # WeChat
