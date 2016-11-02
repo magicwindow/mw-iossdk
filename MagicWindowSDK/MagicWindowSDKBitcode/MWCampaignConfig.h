@@ -24,5 +24,4 @@
 
 @property (assign, nonatomic) BOOL needLogin;           //判断进入该活动是否需要登录,1:需要，0:不需要
 
-
 @end
