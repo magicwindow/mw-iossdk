@@ -21,6 +21,9 @@ Pod::Spec.new do |s|
   s.frameworks = "AdSupport","CoreTelephony","CoreGraphics","CoreFoundation","SystemConfiguration","CoreLocation"
   s.libraries = "z","sqlite3.0"
 
+  s.default_subspec = 'MW'
+
+  s.subspec 'MW' do |mw|
   end
 
   # WeChat
@@ -29,7 +32,7 @@ Pod::Spec.new do |s|
   sp.source_files = "MagicWindowSDK/WeChat/*.{h,m}"
   sp.public_header_files = "MagicWindowSDK/WeChat/*.h"
   sp.libraries = "sqlite3","c++"
-  sp.dependency 'MagicWindowSDKBitcode'
+  sp.dependency 'MagicWindowSDKBitcode/MW'
   end
 
 end
