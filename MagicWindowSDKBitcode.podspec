@@ -14,7 +14,6 @@ Pod::Spec.new do |s|
 
   s.subspec 'MW' do |mw|
     mw.source_files = "MagicWindowSDK/MagicWindowSDKBitcode/*.{h,m}"
-    mw.exclude_files ="MagicWindowSDK/MagicWindowSDKBitcode/MWFloatView.m"
     mw.public_header_files = "MagicWindowSDK/MagicWindowSDKBitcode/*.h"
     mw.resource     = "MagicWindowSDK/MagicWindowSDKBitcode/MagicWindow.bundle"
     mw.preserve_paths = "MagicWindowSDK/MagicWindowSDKBitcode/libMagicWindowSDK.a"
