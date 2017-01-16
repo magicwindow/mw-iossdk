@@ -103,6 +103,14 @@ typedef  NSDictionary * _Nullable (^ CallbackWithReturnMLink) (NSString *__nonnu
 
 #pragma mark Campaign
 /**
+ *  获取UserAgent
+ *  当使用自己的WebView打开活动的时候，需要修改UserAgent（新UserAgent=原UserAgent + SDK的UserAgent），用作数据监测和统计
+ *  @param key 魔窗位key
+ *  @return SDK的UserAgent
+ */
++ (nullable NSString *)getUserAgentWithKey:(nonnull NSString *)key;
+
+/**
  *  获取活动相关配置信息
  *  适用于pushViewController
  *  @param key 魔窗位key

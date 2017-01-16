@@ -24,5 +24,12 @@
 
 @property (assign, nonatomic) BOOL needLogin;           //判断进入该活动是否需要登录,1:需要，0:不需要
 
+@property (strong, nonatomic) NSString *shareTitle;     //活动分享标题
+
+@property (strong, nonatomic) NSString *shareDesc;     //活动分享内容
+
+@property (nonatomic, strong) NSString *activityUrl;        //活动url
+
+@property (nonatomic, strong) NSString *shareUrl;           //分享url
 
 @end
