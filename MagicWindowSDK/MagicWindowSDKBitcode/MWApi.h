@@ -215,6 +215,13 @@ typedef  NSDictionary * _Nullable (^ CallbackWithReturnMLink) (NSString *__nonnu
        MLinkCallBackParamas:(nullable CallbackWithReturnMLink)mLinkCallBackParamas;
 
 /**
+ *  发送展现日志
+ *  @param key 魔窗位key
+ *  确定视图显示在window上之后再调用trackImpression，不要太早调用，在tableview或scrollview中使用时尤其要注意
+ */
++ (void)trackImpressionWithKey:(nonnull NSString *)key;
+
+/**
  *  判断单个魔窗位上是否有活动
  *  @param mwkey 魔窗位key
  *  @return yes:有处于活跃状态的活动；no：没有处于活跃状态的活动
