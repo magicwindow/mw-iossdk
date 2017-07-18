@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "MagicWindowSDK"
-  s.version      = "4.0.170606"
+  s.version      = "4.1.0"
   s.summary      = "MagicWindowSDK for Cocoapods convenience."
   s.homepage     = "http://magicwindow.cn/"
   s.license      = "MIT"
@@ -18,7 +18,7 @@ s.xcconfig = {
 'LIBRARY_SEARCH_PATHS' => '"$(PODS_ROOT)/MagicWindowSDK/MagicWindowSDK"',
 'HEADER_SEARCH_PATHS' => '"$(PODS_ROOT)/MagicWindowSDK/MagicWindowSDK"'
 }
-s.frameworks = "AdSupport","CoreTelephony","CoreGraphics","CoreFoundation","SystemConfiguration","CoreLocation","WebKit"
+s.frameworks = "AdSupport","CoreTelephony","CoreGraphics","CoreFoundation","SystemConfiguration","CoreLocation","WebKit","ImageIO"
 
   # WeChat
   s.subspec 'WeChat' do |sp|

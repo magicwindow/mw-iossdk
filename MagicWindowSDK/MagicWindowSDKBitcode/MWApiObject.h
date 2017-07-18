@@ -32,13 +32,6 @@ typedef enum
 
 @end
 
-//动态魔窗位key
-@interface MWDynamicKeyDomain : NSObject
-
-@property (nonatomic, strong) NSString *mwKey;      //魔窗位key
-@property (nonatomic, strong) NSDictionary *dynamicDic;
-
-@end
 
 //webview导航条左边自定义按钮
 @interface MWBarLeftButton : UIButton
