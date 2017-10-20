@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "MagicWindowSDKBitcode"
-  s.version      = "4.1.0"
+  s.version      = "4.2.0"
   s.summary      = "MagicWindowSDK for Cocoapods convenience."
   s.homepage     = "http://magicwindow.cn/"
   s.license      = "MIT"
@@ -19,14 +19,6 @@ s.xcconfig = {
 'HEADER_SEARCH_PATHS' => '"$(PODS_ROOT)/MagicWindowSDK/MagicWindowSDKBitcode"'
 }
 s.frameworks = "AdSupport","CoreTelephony","CoreGraphics","CoreFoundation","SystemConfiguration","CoreLocation","WebKit","ImageIO"
-
-  # WeChat
-  s.subspec 'WeChat' do |sp|
-  sp.vendored_libraries = "MagicWindowSDK/WeChat/*.a"
-  sp.source_files = "MagicWindowSDK/WeChat/*.{h,m}"
-  sp.public_header_files = "MagicWindowSDK/WeChat/*.h"
-  sp.frameworks = "CFNetwork","Security"
-  sp.libraries = "sqlite3.0","c++","z"
-  end
+s.dependency "WechatOpenSDK"
 
 end

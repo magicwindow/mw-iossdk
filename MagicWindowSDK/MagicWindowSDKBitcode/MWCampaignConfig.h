@@ -5,7 +5,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "MWAdCommonConfig.h"
 
 @interface MWCampaignConfig : NSObject
 
@@ -33,6 +32,5 @@
 
 @property (nonatomic, strong) NSString *shareUrl;           //分享url
 
-@property (nonatomic, assign) MWAdType mwAdType;        //广告类型
 
 @end
