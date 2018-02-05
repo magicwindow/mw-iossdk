@@ -3,7 +3,7 @@ Pod::Spec.new do |s|
   s.name         = "MagicWindowSDK"
   s.version      = "4.2.180205"
   s.summary      = "MagicWindowSDK for Cocoapods convenience."
-  s.homepage     = "http://magicwindow.cn/"
+  s.homepage     = "http://www.magicwindow.cn/"
   s.license      = "MIT"
   s.author       = { "MagicWindow" => "support@magicwindow.cn" }
   s.source       = { :git => "https://github.com/magicwindow/mw-iossdk.git", :tag => "#{s.version}" }
