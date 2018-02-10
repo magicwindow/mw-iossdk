@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "MagicWindowSDK"
-  s.version      = "4.2.180205"
+  s.version      = "4.2.180210"
   s.summary      = "MagicWindowSDK for Cocoapods convenience."
   s.homepage     = "http://www.magicwindow.cn/"
   s.license      = "MIT"
