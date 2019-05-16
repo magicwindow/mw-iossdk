@@ -43,7 +43,7 @@ typedef  NSDictionary * _Nullable (^ CallbackWithReturnMLink) (NSString *__nonnu
 
 /**
  *  注册app
- *  注意：需要在 application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions 中调用
+ *  需要在 application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions 中调用
  *  @param appKey 魔窗后台注册的appkey
  *  @return void
  */
@@ -58,7 +58,7 @@ typedef  NSDictionary * _Nullable (^ CallbackWithReturnMLink) (NSString *__nonnu
 
 /**
  *  设置用户基本信息
- *  @param user MWUserProfile对象，了解MWUserProfile详见MWApiObject.h文件
+ *  @param user MWUserProfile对象
  *  @return void
  */
 + (void)setUserProfile:(nonnull MWUserProfile *)user;
